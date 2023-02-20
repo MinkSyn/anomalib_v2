@@ -45,7 +45,7 @@ class GaussianBlur2d(nn.Module):
         if normalize:
             self.kernel = normalize_kernel2d(self.kernel)
         self.channels = channels
-        self.kernel.unsqueeze_(0).unsqueeze_(0)
+        self.kernel.unsqueeze_(0)#.unsqueeze_(0)
         self.kernel = self.kernel.expand(self.channels, -1, -1, -1)
         self.border_type = border_type
         self.padding = padding
